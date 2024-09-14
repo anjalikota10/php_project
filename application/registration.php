@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn=mysqli_connect("localhost","root","","wedmegood");
+$conn=mysqli_connect("php-rds.ccx7flt77asx.ap-south-1.rds.amazonaws.com","root","12345678","wedmegood");
  if($conn)
  {
     // echo"Connected";
