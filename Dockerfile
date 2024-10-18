@@ -17,5 +17,15 @@ COPY . /var/www/html/
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
+# Add custom configuration for Apache
+RUN echo "<Directory /var/www/html/>\n\
+    Options Indexes FollowSymLinks\n\
+    AllowOverride All\n\
+    Require all granted\n\
+</Directory>" > /etc/apache2/conf-available/000-default.conf
+
+# Restart Apache to apply changes
+RUN service apache2 restart
+
 # Expose port 80 to access the web application
 EXPOSE 80
