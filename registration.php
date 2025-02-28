@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn=mysqli_connect("hostname","vertex", "vertex123" , "wedmegood");
+$conn=mysqli_connect("root","vertex", "vertex123" , "wedmegood");
  if($conn)
  {
     // echo"Connected";
