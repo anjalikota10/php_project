@@ -1,0 +1,16 @@
+version: "3"
+services:
+  hostname:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: vertex
+      MYSQL_PASSWORD: vertex123
+      MYSQL_DATABASE: wedmegood
+    ports:
+      - "3306:3306"  # This exposes the MySQL port for Workbench connection
+
+  app:
+    build: .
+    ports:
+      - 8080:80
