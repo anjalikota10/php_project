@@ -1,16 +1,30 @@
-version: "3"
+version: '3.8'
+
 services:
-  hostname:
-    image: mysql
+  php-app:
+    build: .
+    container_name: php_app
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    container_name: mysql_db
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: wedmegood
       MYSQL_USER: vertex
       MYSQL_PASSWORD: vertex123
-      MYSQL_DATABASE: wedmegood
     ports:
-      - "3306:3306"  # This exposes the MySQL port for Workbench connection
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
 
-  app:
-    build: .
-    ports:
-      - 8080:80
+volumes:
+  db_data:
+
