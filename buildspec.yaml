@@ -5,19 +5,20 @@ phases:
     runtime-versions:
       php: 8.1
     commands:
-      - echo "[Install] Nothing extra to install for plain PHP app"
+      - echo "[Install] Using PHP 8.1"
 
   pre_build:
     commands:
-      - echo "[Pre‑Build] $(date)"
+      - echo "[Pre-Build] Started at $(date)"
 
   build:
     commands:
-      - echo "[Build] No compilation needed"
+      - php -v
+      - echo "[Build] No compilation needed for PHP"
 
   post_build:
     commands:
-      - echo "[Post‑Build] Completed at $(date)"
+      - echo "[Post-Build] Finished at $(date)"
 
 artifacts:
   files:
