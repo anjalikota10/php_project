@@ -27,5 +27,5 @@ artifacts:
   discard-paths: yes
   exclude-paths:
     - .git/**
-    - php-login-app.zip
+    - php_projct.zip
 
